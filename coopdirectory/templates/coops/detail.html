@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}{{ coop.name }} - Coop Directory{% endblock %}
+{% block content %}
+<pre>
+    {{ coop.name }}
+    {{ coop.street_address_1 }}
+    {{ coop.street_address_2 }}
+    {{ coop.state }}
+    {{ coop.description }}
+    {% if coop.picture %}
+        {{ coop.picture.extra_thumbnails_tag.large }}
+    {% endif %}
+</pre>
+{% endblock %}
