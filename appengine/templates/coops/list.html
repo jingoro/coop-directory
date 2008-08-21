@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Coop List - Coop Directory{% endblock %}
+{% block content %}
+{% include "_pagination.html" %}
+<ol start={{first_item_number}}>
+{% for coop in page.object_list %}
+    <li><pre>
+        {{ coop.name }}
+        {{ coop.street_address_1 }}
+        {{ coop.street_address_2 }}
+        {{ coop.state }}, {{ coop.zip_code }}
+        {{ coop.description }}
+        {% if coop.picture %}
+            {{ coop.picture.thumbnail_tag }}
+        {% endif %}
+    </pre></li>
+{% endfor %}
+</ol>
+{% include "_pagination.html" %}
+<a href="/coops/add">Add</a>
+{% endblock %}
