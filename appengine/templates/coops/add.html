@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Add a Coop</h1>
+<form action="add" method="post">
+<table>
+{{ form.as_table }}
+</table>
+<input type="submit" />
+</form>
+{% endblock %}

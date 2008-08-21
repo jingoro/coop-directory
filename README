@@ -1,11 +1,35 @@
 Dependencies:
 
- * sorl.thumbnail -- support for thumbnails in ImageFields.  Get the SVN for it
-   here:
+# Install Macports
 
-   http://code.google.com/p/sorl-thumbnail/source/checkout
+Goto http://www.macports.org/install.php
 
- * PIL
- * django 1.0beta or higher
+# Install Python and the necessary dependencies for Django + Google App Engine
 
+sudo port install openssl python25 python_select py25-socket-ssl py25-pil py25-setuptools
+sudo python_select python25
+sudo ln -s easy_install-2.5 /opt/local/bin/easy_install
 
+# Install Django
+
+cd /tmp
+wget http://www.djangoproject.com/download/1.0-beta-1/tarball/ -O Django-1.0-beta-1.tar.gz
+tar zxf Django-1.0-beta-1.tar.gz
+cd Django-1.0-beta_1
+sudo python setup.py install
+cd /tmp
+sudo rm -rf Django-1.0-beta*
+
+# Install Google App Engine
+
+* Browse and download from http://code.google.com/appengine/downloads.html
+* Drag GoogleAppEngineLauncher into your Applications folder, and launch it.
+* Enter your password to install the necessary files.
+
+.h2 Getting this exception?
+
+django.core.exceptions.ImproperlyConfigured: 'appengine' isn't an available database backend. Available options are: 'ado_mssql', 'dummy', 'mysql', 'mysql_old', 'oracle', 'postgresql', 'postgresql_psycopg2', 'sqlite3'
+
+Try, from your project directory:
+
+ln -s /opt/local/lib/python2.5/site-packages/django .

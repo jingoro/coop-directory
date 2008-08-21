@@ -1,0 +1,18 @@
+<div class='pagination'>
+{% if page.has_other_pages %}
+Pages:
+    {% if page.has_previous %}
+        <a href='?{{querystring}}&p={{page.previous_page_number}}' title='previous page'>&larr;</a>
+    {% endif %}
+    {% for i in page.paginator.page_range %}
+        {% ifequal i page.number %}
+            {{ i }}
+        {% else %}
+            <a href='?{{querystring}}&p={{i}}' title='results page {{i}}'>{{i}}</a> 
+        {% endifequal %}
+    {% endfor %}
+    {% if page.has_next %}
+        <a href='?{{querystring}}&p={{page.next_page_number}}' title='next page'>&rarr;</a>
+    {% endif %}
+{% endif %}
+</div>
