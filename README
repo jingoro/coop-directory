@@ -1,0 +1,11 @@
+Dependencies:
+
+ * sorl.thumbnail -- support for thumbnails in ImageFields.  Get the SVN for it
+   here:
+
+   http://code.google.com/p/sorl-thumbnail/source/checkout
+
+ * PIL
+ * django 1.0beta or higher
+
+
