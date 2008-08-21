@@ -26,10 +26,19 @@ sudo rm -rf Django-1.0-beta*
 * Drag GoogleAppEngineLauncher into your Applications folder, and launch it.
 * Enter your password to install the necessary files.
 
+# Run the server
+
+cd appengine
+./manage.py runserver
+
 .h2 Getting this exception?
 
 django.core.exceptions.ImproperlyConfigured: 'appengine' isn't an available database backend. Available options are: 'ado_mssql', 'dummy', 'mysql', 'mysql_old', 'oracle', 'postgresql', 'postgresql_psycopg2', 'sqlite3'
 
-Try, from your project directory:
+Try this:
+  
+  ln -s /opt/local/lib/python2.5/site-packages/django django
 
-ln -s /opt/local/lib/python2.5/site-packages/django .
+You can access a Google App admin page here;
+
+http://localhost:8000/_ah/admin
