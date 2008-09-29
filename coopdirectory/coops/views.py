@@ -11,7 +11,9 @@ def coop_list(request):
     coops = Coop.objects.all()
     paginator = Paginator(coops, 10)
     page = paginator.page(request.GET.get('p', 1))
-    return render_to_response('coops/list.html', {'page': page, 'querystring': '', 'first_item_number': paginator.per_page * (page.number - 1) + 1})
-
-
+    return render_to_response('coops/list.html', {
+            'page': page, 
+            'querystring': '', 
+            'first_item_number': paginator.per_page * (page.number - 1) + 1
+    })
 

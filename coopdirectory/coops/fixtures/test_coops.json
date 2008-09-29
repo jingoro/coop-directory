@@ -1,0 +1,284 @@
+[
+    {
+        "pk": 1, 
+        "model": "coops.coopuser", 
+        "fields": {
+            "user": 1, 
+            "contactable": 1
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "coops.question", 
+        "fields": {
+            "category": 1, 
+            "free_text_answer_ok": true, 
+            "prompt": 1, 
+            "multiple_answers_ok": false
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "coops.question", 
+        "fields": {
+            "category": 3, 
+            "free_text_answer_ok": false, 
+            "prompt": 2, 
+            "multiple_answers_ok": false
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "coops.prompt", 
+        "fields": {
+            "prompt": "How many people live in your house?"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "coops.prompt", 
+        "fields": {
+            "prompt": "What kind of food do you serve?"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "coops.answer", 
+        "fields": {
+            "answer": "<5"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "coops.answer", 
+        "fields": {
+            "answer": "<10"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "coops.answer", 
+        "fields": {
+            "answer": "<15"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "coops.answer", 
+        "fields": {
+            "answer": ">15"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "coops.answer", 
+        "fields": {
+            "answer": "None"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "coops.answer", 
+        "fields": {
+            "answer": "Vegetarian"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "coops.answer", 
+        "fields": {
+            "answer": "Meat"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "coops.answerorder", 
+        "fields": {
+            "answer": 5, 
+            "question_template": 2, 
+            "order": 0
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "coops.answerorder", 
+        "fields": {
+            "answer": 1, 
+            "question_template": 1, 
+            "order": 1
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "coops.answerorder", 
+        "fields": {
+            "answer": 6, 
+            "question_template": 2, 
+            "order": 1
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "coops.answerorder", 
+        "fields": {
+            "answer": 2, 
+            "question_template": 1, 
+            "order": 2
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "coops.answerorder", 
+        "fields": {
+            "answer": 7, 
+            "question_template": 2, 
+            "order": 2
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "coops.answerorder", 
+        "fields": {
+            "answer": 3, 
+            "question_template": 1, 
+            "order": 3
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "coops.answerorder", 
+        "fields": {
+            "answer": 4, 
+            "question_template": 1, 
+            "order": 4
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "coops.questioncategory", 
+        "fields": {
+            "category": "Demographics", 
+            "parent": null
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "coops.questioncategory", 
+        "fields": {
+            "category": "Politics", 
+            "parent": 1
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "coops.questioncategory", 
+        "fields": {
+            "category": "Logistics", 
+            "parent": null
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "coops.contactable", 
+        "fields": {}
+    }, 
+    {
+        "pk": 1, 
+        "model": "coops.emaillabel", 
+        "fields": {
+            "rank": 1, 
+            "label": "Main"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "coops.emaillabel", 
+        "fields": {
+            "rank": 2, 
+            "label": "Work"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "coops.emaillabel", 
+        "fields": {
+            "rank": 3, 
+            "label": "Home"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "coops.emaillabel", 
+        "fields": {
+            "rank": 4, 
+            "label": "Other"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "coops.phonenumberlabel", 
+        "fields": {
+            "rank": 1, 
+            "label": "Main"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "coops.phonenumberlabel", 
+        "fields": {
+            "rank": 2, 
+            "label": "Work"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "coops.phonenumberlabel", 
+        "fields": {
+            "rank": 3, 
+            "label": "Home"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "coops.phonenumberlabel", 
+        "fields": {
+            "rank": 4, 
+            "label": "Mobile"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "coops.phonenumberlabel", 
+        "fields": {
+            "rank": 5, 
+            "label": "Other"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "coops.email", 
+        "fields": {
+            "description": "Charlie's main email address!", 
+            "created_at": "2008-09-28 17:29:51", 
+            "updated_at": "2008-09-28 17:29:51", 
+            "label": 1, 
+            "contactable": 1, 
+            "email": "c@tirl.org"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "coops.coopcategory", 
+        "fields": {
+            "category": "Housing Coop"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "coops.cooppicture", 
+        "fields": {
+            "picture": "uploads/coop_pictures/2008/09/0-032781.jpeg", 
+            "stock": false
+        }
+    }
+]

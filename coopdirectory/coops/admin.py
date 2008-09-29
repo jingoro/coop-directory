@@ -1,40 +1,62 @@
 from django.contrib import admin
-from coopdirectory.coops.models import Coop, Organization
+from coopdirectory.coops.models import *
+
+# Coop users
+
+admin.site.register(CoopUser)
+
+# Coops and questions
+
+admin.site.register(CoopCategory)
+
+class CoopRelationshipInline(admin.TabularInline):
+    model = CoopRelationship
+    extra = 1
+    fk_name = 'from_coop'
+
+class AnsweredQuestionInline(admin.TabularInline):
+    model = AnsweredQuestion
+    extra = 2
+    exclude = ['branch', 'revision', 'created_at']
+    filter_horizontal = ['answers']
 
 class CoopAdmin(admin.ModelAdmin):
-    list_display = ('name', 'state', 'record_modified', 'record_added')
-    date_hierarchy = 'record_modified'
-    fieldsets = (
-            (None, {
-                'fields': ('name', 'street_address_1', 'street_address_2', 'city', 'state', 'zip_code', 'phone', 'public_email'),
-            }),
-            (None, {
-                'fields': ('number_of_residents', 'average_rent', 'founded', 'description', 'picture', 'organization')
-            }),
-                
-    )
-    # def allow_contact_or_superuser(self, request, obj, super_can):
-    #     if request.user.is_superuser or not obj:
-    #         return super_can
-    #     return not(not obj.contacts.filter(id__exact = request.user.id))
-    # 
-    # # permission to change only if superuser or a contact for the coop
-    # def has_change_permission(self, request, obj=None):
-    #     return self.allow_contact_or_superuser(request, obj,
-    #             super(CoopAdmin, self).has_change_permission(request, obj))
-    # 
-    # # permission to delete only if superuser or a contact for the coop
-    # def has_delete_permission(self, request, obj = None):
-    #     return self.allow_contact_or_superuser(request, obj,
-    #             super(CoopAdmin, self).has_delete_permission(request, obj))
-    # 
-    # # superuser sees all; regular user sees only their own
-    # def queryset(self, request):
-    #     qs = super(CoopAdmin, self).queryset(request)
-    #     if request.user.is_superuser:
-    #         return qs
-    #     else:
-    #         return qs.filter(contacts__id__exact = request.user.id)
+    filter_horizontal = ['related_coops', 'categories']
+    inlines = [AnsweredQuestionInline, CoopRelationshipInline]
+    exclude = ['branch', 'revision', 'created_at']
 
 admin.site.register(Coop, CoopAdmin)
-admin.site.register(Organization)
+admin.site.register(CoopPicture)
+
+# Question templates
+
+admin.site.register(Prompt)
+admin.site.register(Answer)
+admin.site.register(QuestionCategory)
+
+class AnswerOrderInline(admin.TabularInline):
+    model = AnswerOrder
+    extra = 7 
+
+class QuestionAdmin(admin.ModelAdmin):
+    inlines = [AnswerOrderInline]
+
+admin.site.register(Question, QuestionAdmin)
+
+# Contactables
+
+class EmailInline(admin.TabularInline):
+    model = Email
+    extra = 2
+
+class PhoneNumberInline(admin.TabularInline):
+    model = PhoneNumber
+    extra = 2
+
+class ContactableAdmin(admin.ModelAdmin):
+    inlines = [EmailInline, PhoneNumberInline]
+
+admin.site.register(Contactable, ContactableAdmin)
+
+admin.site.register(EmailLabel)
+admin.site.register(PhoneNumberLabel)
